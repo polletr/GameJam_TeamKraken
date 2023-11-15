@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D iceCollider;
     private PolygonCollider2D cloudCollider;
 
+    [SerializeField] Transform teleportPosition;
+
+    [SerializeField] float teleportDelay = 1.0f;
+
+
     public UnityEvent changeState;
 
     private bool canMove;
@@ -63,12 +68,11 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = waterMaterial;
-        rb.mass = 5f;
+        rb.mass = 2f;
 
         iceCollider.enabled = false;
         cloudCollider.enabled = false;
         waterCollider.enabled = true;
-
 
         canJump = false;
         playerSprite.sprite = waterSprite;
@@ -151,13 +155,22 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void StopMovement()
+    public void Die()
     {
         canMove = false;
+        Invoke("TeleportWithDelay", teleportDelay);
     }
 
     public void RestartMovement()
     {
         canMove = true;
+
     }
+
+    private void TeleportWithDelay()
+    {
+        this.transform.position = teleportPosition.position;
+        RestartMovement();
+    }
+
 }
