@@ -6,8 +6,6 @@ using UnityEngine.Events;
 public class Water : MonoBehaviour
 {
     [SerializeField] LayerMask playerLayer;
-    [SerializeField] Transform teleportPosition;
-    [SerializeField] float gizmoRadius = 0.5f; // Adjust this to change gizmo size
 
     public UnityEvent playerDrowned;
 
@@ -18,11 +16,5 @@ public class Water : MonoBehaviour
             playerDrowned.Invoke();
         }
 
-    }
-    private void OnDrawGizmos()
-    {
-        // Draw a gizmo sphere to visualize the teleport position
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(teleportPosition.position, gizmoRadius);
     }
 }

@@ -36,6 +36,7 @@ public class GrowingTree : MonoBehaviour
     void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
+        Debug.Log(timer);
         if (growing && currentPos.position.y < desiredPos.position.y)
         {
             transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
@@ -43,7 +44,10 @@ public class GrowingTree : MonoBehaviour
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
-            transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
+            if (timer > 1f)
+            {
+                transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
+            }
         }
     }
 
@@ -61,11 +65,8 @@ public class GrowingTree : MonoBehaviour
     {
         if (!fixedTree)
         {
-            if (timer > 1f)
-            {
                 growing = false;
                 Debug.Log(growing);
-            }
         }
 
     }

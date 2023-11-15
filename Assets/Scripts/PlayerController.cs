@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
 
     public UnityEvent changeState;
+    [SerializeField] float gizmoRadius = 0.5f; // Adjust this to change gizmo size
+
 
     private bool canMove;
     private void Start()
@@ -176,5 +178,13 @@ public class PlayerController : MonoBehaviour
         this.transform.position = teleportPosition.position;
         RestartMovement();
     }
+
+    private void OnDrawGizmos()
+    {
+        // Draw a gizmo sphere to visualize the teleport position
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(teleportPosition.position, gizmoRadius);
+    }
+
 
 }
