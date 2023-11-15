@@ -24,29 +24,31 @@ public class GrowingTree : MonoBehaviour
 
     [SerializeField]
     private bool fixedTree;
+
+    private Animator anim; 
     // Start is called before the first frame update
     void Start()
     {
         speed = originalSpeed;
         startPos = new Vector2(currentPos.position.x, currentPos.position.y);
-        Debug.Log(startPos.y);
+        anim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
-        Debug.Log(timer);
         if (growing && currentPos.position.y < desiredPos.position.y)
         {
             transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
-
+            //anim.SetBool("Moving", true);
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
             if (timer > 1f)
             {
                 transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
+                //anim.SetBool("Moving", true);
             }
         }
     }
@@ -57,7 +59,6 @@ public class GrowingTree : MonoBehaviour
         {
             growing = true;
             timer = 0f;
-            Debug.Log(growing);
         }
     }
 
@@ -65,8 +66,7 @@ public class GrowingTree : MonoBehaviour
     {
         if (!fixedTree)
         {
-                growing = false;
-                Debug.Log(growing);
+            growing = false;
         }
 
     }

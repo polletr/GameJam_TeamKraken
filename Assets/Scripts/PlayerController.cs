@@ -167,6 +167,12 @@ public class PlayerController : MonoBehaviour
         Invoke("TeleportWithDelay", teleportDelay);
     }
 
+    public void StopMovement()
+    {
+        canMove = false;
+        rb.velocity = new Vector2 (0, 0);
+    }
+
     public void RestartMovement()
     {
         canMove = true;
