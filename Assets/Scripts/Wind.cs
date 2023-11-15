@@ -47,7 +47,6 @@ public class Wind : MonoBehaviour
                 forceDirection = Vector2.down;
                 break;
         }
-        Debug.Log("Object is in trigger");
         player.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
 
     }

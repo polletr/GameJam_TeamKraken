@@ -1785,7 +1785,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7123247054162442512, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: dieVelocity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7123247054162442512, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: highFall.m_PersistentCalls.m_Calls.Array.size

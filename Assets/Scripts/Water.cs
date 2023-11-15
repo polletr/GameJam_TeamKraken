@@ -7,7 +7,6 @@ public class Water : MonoBehaviour
 {
     [SerializeField] LayerMask playerLayer;
     [SerializeField] Transform teleportPosition;
-    [SerializeField] float teleportDelay = 1.0f;
     [SerializeField] float gizmoRadius = 0.5f; // Adjust this to change gizmo size
 
     public UnityEvent playerDrowned;

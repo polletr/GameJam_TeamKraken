@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float teleportDelay = 1.0f;
 
+    [SerializeField] float iceMass;
+    [SerializeField] float gasMass;
+    [SerializeField] float waterMass;
+
 
     public UnityEvent changeState;
 
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = waterMaterial;
-        rb.mass = 2f;
+        rb.mass = waterMass;
 
         iceCollider.enabled = false;
         cloudCollider.enabled = false;
@@ -87,7 +91,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = iceMaterial;
-        rb.mass = 30f;
+        rb.mass = iceMass;
 
         iceCollider.enabled = true;
         cloudCollider.enabled = false;
@@ -107,7 +111,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.mass = 1f;
+        rb.mass = gasMass;
         iceCollider.enabled = false;
         cloudCollider.enabled = true;
         waterCollider.enabled = false;
