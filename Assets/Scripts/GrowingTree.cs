@@ -20,6 +20,8 @@ public class GrowingTree : MonoBehaviour
 
     private bool growing;
 
+    private float timer;
+
     [SerializeField]
     private bool fixedTree;
     // Start is called before the first frame update
@@ -33,7 +35,8 @@ public class GrowingTree : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (growing && currentPos.position.y < desiredPos.localPosition.y)
+        timer += Time.fixedDeltaTime;
+        if (growing && currentPos.position.y < desiredPos.position.y)
         {
             transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
 
@@ -49,6 +52,7 @@ public class GrowingTree : MonoBehaviour
         if (other.gameObject.tag == "Player" && ClimateManager.Instance.currentState == 0)
         {
             growing = true;
+            timer = 0f;
             Debug.Log(growing);
         }
     }
@@ -56,8 +60,13 @@ public class GrowingTree : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         if (!fixedTree)
-        growing = false;
-        Debug.Log(growing);
+        {
+            if (timer > 1f)
+            {
+                growing = false;
+                Debug.Log(growing);
+            }
+        }
 
     }
 
