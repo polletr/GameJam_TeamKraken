@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private float horizontal;
     private float moveSpeed;
+
+    private float previousMoveSpeed;
 
     [SerializeField] private float waterSpeed;
     [SerializeField] private float gasSpeed;
@@ -93,5 +96,15 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+    }
+
+    public void Death()
+    {
+        
+    }
+
+    public void Respawn()
+    {
+
     }
 }
