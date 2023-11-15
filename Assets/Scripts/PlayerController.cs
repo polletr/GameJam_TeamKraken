@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = waterMaterial;
+        rb.mass = 5f;
 
         iceCollider.enabled = false;
         cloudCollider.enabled = false;
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = iceMaterial;
+        rb.mass = 30f;
 
         iceCollider.enabled = true;
         cloudCollider.enabled = false;
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
+        rb.mass = 1f;
         iceCollider.enabled = false;
         cloudCollider.enabled = true;
         waterCollider.enabled = false;
