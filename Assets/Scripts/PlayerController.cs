@@ -122,7 +122,15 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
-            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+            if (ClimateManager.Instance.currentState >0)
+            {
+                rb.AddForce(new Vector2(moveSpeed * horizontal, 0), ForceMode2D.Force);
+            }
+            else
+            {
+                rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+            }
 
             if (IsGrounded() && Input.GetKeyDown("space") && canJump)
             {
@@ -141,12 +149,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void Death()
+    public void StopMovement()
     {
         canMove = false;
     }
 
-    public void Respawn()
+    public void RestartMovement()
     {
         canMove = true;
     }

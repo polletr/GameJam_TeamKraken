@@ -53,6 +53,9 @@ TagManager:
   - name: Water
     uniqueID: 2941552603
     locked: 0
+  - name: Interactable
+    uniqueID: 39361769
+    locked: 0
   - name: Ground
     uniqueID: 3831662605
     locked: 0

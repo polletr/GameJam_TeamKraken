@@ -4890,7 +4890,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -623037819
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13b1ca24b8464e04c8c0baeacd80f8e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4982,7 +4982,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  waterSpeed: 7
+  waterSpeed: 3
   gasSpeed: 5
   iceSpeed: 9
   jumpForce: 5

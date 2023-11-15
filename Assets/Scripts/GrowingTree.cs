@@ -31,16 +31,16 @@ public class GrowingTree : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (growing && currentPos.position.y < desiredPos.localPosition.y)
         {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
 
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
         }
     }
 
