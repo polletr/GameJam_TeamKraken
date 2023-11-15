@@ -17,7 +17,7 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(player.GetComponent<Rigidbody2D>().velocity.y);
-        if (collision.gameObject.layer == 3 && ClimateManager.Instance.currentState == ClimateManager.State.Ice && player.GetComponent<Rigidbody2D>().velocity.y >= -dieVelocity)
+        if (collision.gameObject.layer == 3 && ClimateManager.Instance.currentState == ClimateManager.State.Ice && player.GetComponent<Rigidbody2D>().velocity.y < -dieVelocity)
         {
             highFall.Invoke();
         }
