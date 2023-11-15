@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectibleManager : Singleton<CollectibleManager>
 {
-    private int collectibleCount;
+    public int collectibleCount;
     // Start is called before the first frame update
     void Start()
     {

@@ -43,16 +43,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float iceMass;
     [SerializeField] float gasMass;
     [SerializeField] float waterMass;
+    private bool isFacingRight;
+
 
 
     public UnityEvent changeState;
     [SerializeField] float gizmoRadius = 0.5f; // Adjust this to change gizmo size
 
+    private Animator anim;
+
 
     private bool canMove;
     private void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Awake()
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnWater()
     {
+        anim.runtimeAnimatorController = Resources.Load("Assets/Animations/Water_Player.controller") as RuntimeAnimatorController;
         changeState?.Invoke();
         moveSpeed = waterSpeed;
         rb.gravityScale = 0.5f;
@@ -131,9 +136,30 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        Flip();
+        if (!IsGrounded())
+        {
+            anim.SetBool("Falling", true);
+        }
+        else
+        {
+            anim.SetBool("Falling", false);
+        }
+
+
         if (canMove)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
+
+            if (horizontal != 0)
+            {
+                anim.SetBool("Moving", true);
+            }
+            else
+            {
+                anim.SetBool("Moving", false);
+            }
 
             if (ClimateManager.Instance.currentState >0)
             {
@@ -150,6 +176,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal > 0f || !isFacingRight && horizontal < 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

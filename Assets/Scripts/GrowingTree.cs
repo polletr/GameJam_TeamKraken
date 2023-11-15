@@ -42,6 +42,7 @@ public class GrowingTree : MonoBehaviour
         {
             transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
             //anim.SetBool("Moving", true);
+            
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
@@ -51,6 +52,7 @@ public class GrowingTree : MonoBehaviour
                 //anim.SetBool("Moving", true);
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
