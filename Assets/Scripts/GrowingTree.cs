@@ -14,34 +14,57 @@ public class GrowingTree : MonoBehaviour
     private Transform desiredPos;
 
     [SerializeField]
-    private Transform startPos;
+    private Transform currentPos;
+
+    private Vector2 startPos;
+
+    private bool growing;
+
+    [SerializeField]
+    private bool fixedTree;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0f;
+        speed = originalSpeed;
+        startPos = new Vector2(currentPos.position.x, currentPos.position.y);
+        Debug.Log(startPos.y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (startPos.position.y < desiredPos.localPosition.y)
+        if (growing && currentPos.position.y < desiredPos.localPosition.y)
         {
             transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+        }
+        else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
     }
 
-    private void OnCollisionEnter2D (Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player" && ClimateManager.Instance.currentState == 0)
         {
-            speed = originalSpeed;
+            growing = true;
+            Debug.Log(growing);
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (!fixedTree)
+        growing = false;
+        Debug.Log(growing);
+
     }
 
 
     private void OnDecrease()
     {
-        if (transform.position != startPos.position)
+        if (transform.position != currentPos.position)
         {
             speed = -originalSpeed;
         }

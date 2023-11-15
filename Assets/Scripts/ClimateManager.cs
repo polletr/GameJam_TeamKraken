@@ -20,7 +20,7 @@ public class ClimateManager : Singleton<ClimateManager>
     public UnityEvent GasState;
     public UnityEvent WaterState;
 
-    private void SetState(State newState)
+    public void SetState(State newState)
     {
         currentState = newState;
         StopAllCoroutines();//stop the previous coroutines so they aren't operating at the same time
@@ -48,7 +48,6 @@ public class ClimateManager : Singleton<ClimateManager>
     // Start is called before the first frame update
     void Start()
     {
-        if (this.gameObject != null)
             SetState(State.Water);
 
     }

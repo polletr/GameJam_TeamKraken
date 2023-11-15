@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private float moveSpeed;
 
-    private float previousMoveSpeed;
-
     [SerializeField] private float waterSpeed;
     [SerializeField] private float gasSpeed;
     [SerializeField] private float iceSpeed;
@@ -31,14 +29,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite waterSprite;
     [SerializeField] private Sprite iceSprite;
 
+    [SerializeField] private PhysicsMaterial2D iceMaterial;
+    [SerializeField] private PhysicsMaterial2D waterMaterial;
+
+    private CircleCollider2D waterCollider;
+    private BoxCollider2D iceCollider;
+    private PolygonCollider2D cloudCollider;
+
     public UnityEvent changeState;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool canMove;
+    private void Start()
     {
-
+        
+    }
+    // Start is called before the first frame update
+    void Awake()
+    {
+        canMove = true;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
+
+        waterCollider = GetComponent<CircleCollider2D>();
+        iceCollider = GetComponent<BoxCollider2D>();
+        cloudCollider = GetComponent<PolygonCollider2D>();
     }
 
     public void OnWater()
@@ -48,6 +62,13 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0.5f;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.sharedMaterial = waterMaterial;
+
+        iceCollider.enabled = false;
+        cloudCollider.enabled = false;
+        waterCollider.enabled = true;
+
+
         canJump = false;
         playerSprite.sprite = waterSprite;
     }
@@ -59,8 +80,13 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 1f;
         rb.angularDrag = 0.2f;
         rb.constraints = RigidbodyConstraints2D.None;
-
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.sharedMaterial = iceMaterial;
+
+        iceCollider.enabled = true;
+        cloudCollider.enabled = false;
+        waterCollider.enabled = false;
+
 
         canJump = true;
         playerSprite.sprite = iceSprite;
@@ -74,8 +100,12 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rb.constraints = RigidbodyConstraints2D.None;
-
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        iceCollider.enabled = false;
+        cloudCollider.enabled = true;
+        waterCollider.enabled = false;
+
         canJump = false;
         playerSprite.sprite = cloudSprite;
 
@@ -89,22 +119,35 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
-
-        if (IsGrounded() && Input.GetKeyDown("space") && canJump)
+        if (canMove)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            horizontal = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+            if (IsGrounded() && Input.GetKeyDown("space") && canJump)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind")
+        {
+            ClimateManager.Instance.SetState(ClimateManager.State.Water);
         }
     }
 
+
     public void Death()
     {
-        
+        canMove = false;
     }
 
     public void Respawn()
     {
-
+        canMove = true;
     }
 }

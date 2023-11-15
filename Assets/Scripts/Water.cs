@@ -19,9 +19,10 @@ public class Water : MonoBehaviour
         if ((playerLayer.value & 1 << collision.gameObject.layer) != 0)
         {
             StartCoroutine(TeleportWithDelay(collision.gameObject));
+            playerDrowned.Invoke();
+
         }
 
-        playerDrowned.Invoke();
     }
 
     private IEnumerator TeleportWithDelay(GameObject player)
