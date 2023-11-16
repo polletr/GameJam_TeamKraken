@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class ClimateManager : Singleton<ClimateManager>
@@ -59,11 +60,11 @@ public class ClimateManager : Singleton<ClimateManager>
         {
             SetState(State.Water);
         }
-        if ((Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.Keypad2)) && currentState != State.Ice)
+        if ((Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.Keypad2)) && currentState != State.Ice /*&& SceneManager.GetActiveScene().buildIndex >= 2*/)
         {
             SetState(State.Ice);
-        }
-        if ((Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Keypad3)) && currentState != State.Gas)
+        } 
+        if ((Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Keypad3)) && currentState != State.Gas /*&& SceneManager.GetActiveScene().buildIndex >= 3*/)
         {
             SetState(State.Gas);
         }

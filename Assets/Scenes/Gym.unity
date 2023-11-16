@@ -760,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003775039547063472, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.75
+      value: -5.88
       objectReference: {fileID: 0}
     - target: {fileID: 5003775039547063472, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -854,6 +854,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5003775040354210997, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5003775040354210998, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -865,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 5003775040354210999, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
       propertyPath: m_Offset.x
       value: 0.0041520596
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003775040354210999, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5003775040392812307, guid: 0fae27854dcc7414dbed1bbc67347eae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2083,6 +2091,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7846161179073003170, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179073003170, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -2217,10 +2229,6 @@ PrefabInstance:
     - target: {fileID: 7846161180042902462, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846161180042902463, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.399
       objectReference: {fileID: 0}
     - target: {fileID: 8714982891834547078, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: m_Controller
