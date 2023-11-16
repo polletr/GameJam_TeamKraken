@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
-    public GameManager gameManager; 
-
     [SerializeField]
     private Button continueButton;
     [SerializeField]
@@ -15,14 +15,15 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     private Button exitButton;
     [SerializeField]
-    public GameObject pausePopUp;
+    private GameObject pausePopUp;
+    public static bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
         if (continueButton != null)
         { 
-        continueButton.onClick.AddListener(BackToLevel);
+            continueButton.onClick.AddListener(BackToLevel);
         }
         if (mainMenuButton != null)
         {
@@ -39,26 +40,50 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Ativa o objeto se estiver desativado, ou desativa se estiver ativado
-            if (pausePopUp != null)
-            {
-                pausePopUp.SetActive(true);
-                Time.timeScale = 0f;
-            }
+            PositionPausePopUp();
+            TogglePausePopUp();
         }
     }
-    void BackToLevel()
+    public void BackToLevel()
     {
         pausePopUp.SetActive(false);
         Time.timeScale = 1f;
     }
-    void GoToMainMenu()
+    public void GoToMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
-    void ExitGame()
+    public void ExitGame()
     {
         Application.Quit();
         Debug.Log("Saindo do jogo");
+    }
+    public void TogglePausePopUp()
+    {
+        Debug.Log("calling: TogglePausePopUp");
+        if (pausePopUp != null)
+        {
+            if (isPaused == false)
+            {
+                Debug.Log("check: isPaused == false");
+                pausePopUp.SetActive(true);
+                Time.timeScale = 0f;
+                isPaused = true;
+            }
+            else
+            {
+                Debug.Log("check: isPaused != false");
+                pausePopUp.SetActive(false);
+                Time.timeScale = 1f;
+                isPaused = false;
+            }   
+        }
+    }
+    void PositionPausePopUp()
+    {
+        Debug.Log("calling: PositionPausePopUp");
+        Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.5f);
+        Vector3 worldCenter = Camera.main.ViewportToWorldPoint(screenCenter);
+        pausePopUp.transform.position = worldCenter;
     }
 }

@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance;
+    [SerializeField]
+    private GameObject transitionPopUp;
+    [SerializeField]
+    private PauseController pauseController;
 
     public int currentLevel = 1;
     private int maxLevels = 4;
@@ -17,20 +20,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("MainMenu");
+
     }
     // Update is called once per frame
     void Update()
@@ -58,5 +53,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Congratulations! You completed all levels. Thanks for playing!");
         SceneManager.LoadScene("Victory Scene");
+    }
+    public void LevelFinished()
+    {
+        Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.5f);
+        Vector3 worldCenter = Camera.main.ViewportToWorldPoint(screenCenter);
+        transitionPopUp.transform.position = worldCenter;
+        transitionPopUp.SetActive(true);
+        Time.timeScale = 0f;
+        PauseController.isPaused = true;
     }
 }

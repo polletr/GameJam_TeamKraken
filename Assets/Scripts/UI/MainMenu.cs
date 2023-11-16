@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour
 
         
     }
-    void OnPlayButtonClicked()
+    public void OnPlayButtonClicked()
     {
         SceneManager.LoadScene("Level1");
         Debug.Log("clicou em play");
