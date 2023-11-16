@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  windForce: 15
+  windForce: 35
   windDirection: 0
 --- !u!212 &7602599766492581622
 SpriteRenderer:
