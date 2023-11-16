@@ -55,6 +55,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float dieVelocityWind;
 
+    
+    private AudioSource audioSource;
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip fallWaterClip;
+    [SerializeField]
+    private AudioClip waterMovingClip;
+
+
+    [SerializeField]
+    private AudioClip breakIceClip;
+    [SerializeField]
+    private AudioClip iceMovingClip;
+    [SerializeField]
+    private AudioClip iceJumpingClip;
+
+    [SerializeField]
+    private AudioClip cloudMovingClip;
+    [SerializeField]
+    private AudioClip cloudDyingClip;
 
     private bool canMove;
     private void Start()
@@ -67,6 +87,7 @@ public class PlayerController : MonoBehaviour
         animControllers.Add("ice_animator", Resources.Load("Animations/Player/Ice/Ice_Player") as RuntimeAnimatorController);
         animControllers.Add("gas_animator", Resources.Load("Animations/Player/Gas/Gas_Player") as RuntimeAnimatorController);
 
+        audioSource = GetComponent<AudioSource>();
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
@@ -144,6 +165,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             anim?.SetTrigger("Jumping");
+            audioSource.clip = iceJumpingClip;
+            audioSource.Play();
+
 
         }
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -169,7 +193,6 @@ public class PlayerController : MonoBehaviour
 
         if (canMove)
         {
-            //horizontal = Input.GetAxisRaw("Horizontal");
 
             if (horizontal != 0)
             {
@@ -196,7 +219,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     private void Flip()
     {
         if (isFacingRight && horizontal > 0f || !isFacingRight && horizontal < 0f)
@@ -210,22 +232,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind" && (rb.velocity.y < -dieVelocityWind || rb.velocity.x < -dieVelocityWind))
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind" && (Mathf.Abs(rb.velocity.y) < dieVelocityWind || Mathf.Abs(rb.velocity.x) > dieVelocityWind))
         {
             anim.SetTrigger("Die");
-            
         }
     }
-
-
-
 
     public void Die()
     {
         canMove = false;
         if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
         {
+            audioSource.clip = breakIceClip;
+            audioSource.Play();
             anim.SetTrigger("Die");
+
         }
         Invoke("TeleportWithDelay", teleportDelay);
     }
@@ -233,7 +254,7 @@ public class PlayerController : MonoBehaviour
     public void StopMovement()
     {
         canMove = false;
-        rb.velocity = new Vector2 (0, 0);
+        rb.velocity = new Vector2 (0f, 0f);
     }
 
     public void RestartMovement()
@@ -262,4 +283,38 @@ public class PlayerController : MonoBehaviour
             ClimateManager.Instance.SetState(ClimateManager.State.Water);
     }
 
+    public void FallWaterSound()
+    {
+        audioSource.clip = fallWaterClip;
+        audioSource.Play();
+    }
+
+    public void PlayMoveSound()
+    {
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Water)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = waterMovingClip;
+                audioSource.Play();
+            }
+        }
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = iceMovingClip;
+                audioSource.Play();
+            }
+        }
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = cloudMovingClip;
+                audioSource.Play();
+            }
+        }
+
+    }
 }
