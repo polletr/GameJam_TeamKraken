@@ -50,9 +50,6 @@ TagManager:
   - name: Background2
     uniqueID: 86473375
     locked: 0
-  - name: Interactable
-    uniqueID: 39361769
-    locked: 0
   - name: Water
     uniqueID: 1457727823
     locked: 0
@@ -67,6 +64,9 @@ TagManager:
     locked: 0
   - name: Collectibles
     uniqueID: 1101343499
+    locked: 0
+  - name: Interactable
+    uniqueID: 39361769
     locked: 0
   - name: Player
     uniqueID: 3671929477
