@@ -4997,7 +4997,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   waterSpeed: 3
-  gasSpeed: 1
+  gasSpeed: 2
   iceSpeed: 45
   jumpForce: 5
   cloudSprite: {fileID: 21300000, guid: a47ac13c8e2c41640bfffe5cd696c59f, type: 3}
@@ -5008,7 +5008,7 @@ MonoBehaviour:
   teleportPosition: {fileID: 0}
   teleportDelay: 2
   iceMass: 25
-  gasMass: 1.2
+  gasMass: 1
   waterMass: 2
   changeState:
     m_PersistentCalls:
@@ -5026,6 +5026,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gizmoRadius: 0.5
+  dieVelocityWind: 5
 --- !u!60 &7846161179337164261
 PolygonCollider2D:
   m_ObjectHideFlags: 0

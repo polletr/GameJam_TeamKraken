@@ -65,9 +65,11 @@ public class Wind : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
 
-
+        if (other.gameObject.tag == "Player")
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
+        }
         // Set the force direction based on the selected enum value
-        player.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
 
     }
 }

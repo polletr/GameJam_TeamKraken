@@ -83,8 +83,6 @@ public class PlayerController : MonoBehaviour
         changeState?.Invoke();
         moveSpeed = waterSpeed;
         rb.gravityScale = 0.5f;
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = waterMaterial;
         rb.mass = waterMass;
 
@@ -104,8 +102,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = iceSpeed;
         rb.gravityScale = 1f;
         rb.angularDrag = 0.2f;
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.sharedMaterial = iceMaterial;
         rb.mass = iceMass;
 
@@ -126,16 +122,14 @@ public class PlayerController : MonoBehaviour
         changeState?.Invoke();
         moveSpeed = gasSpeed;
         rb.gravityScale = 0f;
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.mass = gasMass;
+        playerSprite.sprite = cloudSprite;
+        rb.velocity = new Vector2(0, 0);
         iceCollider.enabled = false;
         cloudCollider.enabled = true;
         waterCollider.enabled = false;
 
         canJump = false;
-        playerSprite.sprite = cloudSprite;
 
     }
 
@@ -194,6 +188,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
             }
+
 
         }
 
