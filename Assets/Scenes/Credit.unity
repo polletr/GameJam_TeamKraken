@@ -229,7 +229,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1231556034}
   m_Father: {fileID: 1166077828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -440,7 +441,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281417959
-  m_fontColor: {r: 0.9056604, g: 0.251691, b: 0.19223925, a: 1}
+  m_fontColor: {r: 0.8784314, g: 0.27058825, b: 0.22745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1246,7 +1247,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 194471346}
-  - {fileID: 1231556034}
   m_Father: {fileID: 781022105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1349,12 +1349,12 @@ RectTransform:
   - {fileID: 96983076}
   - {fileID: 1369416956}
   - {fileID: 1701735802}
-  m_Father: {fileID: 1166077828}
-  m_RootOrder: 1
+  m_Father: {fileID: 194471346}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.87238485, y: -5.651145}
+  m_AnchoredPosition: {x: 0.87272054, y: -5.65261}
   m_SizeDelta: {x: 758.0186, y: 695.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231556035
@@ -1701,7 +1701,7 @@ MonoBehaviour:
   DialogueText: {fileID: 567043534}
   Sentences:
   - Team Kraken
-  DialogueSpeed: 0.01
+  DialogueSpeed: 0.0001
 --- !u!1 &1424192337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1755,7 @@ MonoBehaviour:
   DialogueText: {fileID: 1701735803}
   Sentences:
   - Credit
-  DialogueSpeed: 0.01
+  DialogueSpeed: 0.0001
 --- !u!1 &1446383507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.8773585, g: 0.2690895, b: 0.22761661, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
