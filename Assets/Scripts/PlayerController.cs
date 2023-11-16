@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("Moving", false);
             }
 
-            if (ClimateManager.Instance.currentState >0)
+            if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
             {
                 rb.AddForce(new Vector2(moveSpeed * horizontal, 0), ForceMode2D.Force);
             }
