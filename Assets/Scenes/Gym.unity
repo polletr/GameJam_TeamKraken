@@ -1952,6 +1952,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 342820700}
+    - target: {fileID: 7602599766492581617, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
+      propertyPath: windDirection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7602599766492581621, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
       propertyPath: m_Name
       value: Wind
@@ -1960,9 +1964,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7602599766492581622, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7602599766492581623, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602599766492581623, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602599766492581623, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7602599766492581623, guid: 47de969c2ab038c4c8d79570b3cd73e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2053,18 +2069,10 @@ PrefabInstance:
       propertyPath: playerRespawn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 7846161179337164251, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7846161179337164254, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7846161179337164255, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: cloudSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a47ac13c8e2c41640bfffe5cd696c59f, type: 3}
     - target: {fileID: 7846161179337164255, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: teleportPosition
       value: 
@@ -2117,10 +2125,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8714982891834547078, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 044d7b55de95af74dafdb4ed007afffd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
 --- !u!1001 &8380148117273827398

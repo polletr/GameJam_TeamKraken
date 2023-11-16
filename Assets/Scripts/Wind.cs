@@ -13,6 +13,10 @@ public class Wind : MonoBehaviour
     [SerializeField]
     private Direction windDirection;
 
+    private SpriteRenderer sprite;
+
+    private Vector2 forceDirection;
+
     private enum Direction
     {
         Right,
@@ -21,32 +25,48 @@ public class Wind : MonoBehaviour
         Down
     }
 
-    private void Start()
+    private void Awake()
     {
+        sprite = GetComponent<SpriteRenderer>();
+
+        forceDirection = Vector2.zero;
+
+
+        switch (windDirection)
+        {
+            case Direction.Right:
+                forceDirection = Vector2.right;
+                sprite.flipX = false;
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+                break;
+            case Direction.Left:
+                forceDirection = Vector2.left;
+                sprite.flipX = true;
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+                break;
+            case Direction.Up:
+                forceDirection = Vector2.up;
+                sprite.flipX = false;
+                transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+
+                break;
+            case Direction.Down:
+                forceDirection = Vector2.down;
+                sprite.flipX = false;
+                transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+
+                break;
+        }
 
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
 
-        Vector2 forceDirection = Vector2.zero;
 
         // Set the force direction based on the selected enum value
-        switch (windDirection)
-        {
-            case Direction.Right:
-                forceDirection = Vector2.right;
-                break;
-            case Direction.Left:
-                forceDirection = Vector2.left;
-                break;
-            case Direction.Up:
-                forceDirection = Vector2.up;
-                break;
-            case Direction.Down:
-                forceDirection = Vector2.down;
-                break;
-        }
         player.GetComponent<Rigidbody2D>().AddForce(forceDirection * windForce * Time.deltaTime);
 
     }
