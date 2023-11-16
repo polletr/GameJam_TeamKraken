@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113994852385008}
   - component: {fileID: 1274113994852385011}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113994866839869}
   - component: {fileID: 1274113994866839868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113994897019722}
   - component: {fileID: 1274113994897019717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113994934766070}
   - component: {fileID: 1274113994934766065}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274113995218863237}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FixedMushElevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113995235144898}
   - component: {fileID: 1274113995235144957}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113995317183914}
   - component: {fileID: 1274113995317183909}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274113995509160068}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DesiredPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113995592202966}
   - component: {fileID: 1274113995592202961}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113996015857794}
   - component: {fileID: 1274113996015857853}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113996141056131}
   - component: {fileID: 1274113996141056130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274113996182032056}
   - component: {fileID: 1274113996182032059}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 1274113996558150787}
   - component: {fileID: 1274113996558150845}
   - component: {fileID: 1274113996558150786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +977,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.6169994, y: 0.78631485}
+  m_Offset: {x: -3.6169994, y: 0.658409}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -988,7 +988,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.398024, y: 0.1066339}
+  m_Size: {x: 2.398024, y: 0.3624456}
   m_EdgeRadius: 0
 --- !u!1 &1274113996603043623
 GameObject:
@@ -999,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274113996603043622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CurrentPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

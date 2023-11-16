@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6850123473808947281}
   - component: {fileID: 6850123473808947286}
   - component: {fileID: 6850123473808947287}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeafBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0049307346, y: 0.049304463}
+  m_Offset: {x: -0.0049307346, y: -0.04314872}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9790878, y: 0.1941878}
+  m_Size: {x: 2.9790878, y: 0.37909418}
   m_EdgeRadius: 0
 --- !u!50 &6850123473808947287
 Rigidbody2D:
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6850123474309260340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PointA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6850123474617183156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PointB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850123474810980450}
   - component: {fileID: 6850123474810980451}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leaf1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850123475087819545}
   - component: {fileID: 6850123475087819550}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leaf2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6850123475726792686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeafPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

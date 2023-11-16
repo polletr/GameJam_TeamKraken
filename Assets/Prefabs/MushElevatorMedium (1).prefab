@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129391124642515}
   - component: {fileID: 5352129391124642512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129391217779944}
   - component: {fileID: 5352129391217779945}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129391356871913}
   - component: {fileID: 5352129391356871894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 5352129391764855016}
   - component: {fileID: 5352129391764854998}
   - component: {fileID: 5352129391764855017}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5352129391809878861}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CurrentPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392000496065}
   - component: {fileID: 5352129392000496078}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5352129392040358126}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushElevatorMedium (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392056844457}
   - component: {fileID: 5352129392056844438}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392385533729}
   - component: {fileID: 5352129392385533742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MushroomBody (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392423288221}
   - component: {fileID: 5352129392423288218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392479188123}
   - component: {fileID: 5352129392479188120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392489637206}
   - component: {fileID: 5352129392489637207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5352129392812330685}
   - component: {fileID: 5352129392812330682}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mush3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5352129392863390959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DesiredPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
