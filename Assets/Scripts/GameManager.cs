@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private int currentLevel = 1;
+    public int currentLevel = 1;
     private int maxLevels = 4;
     private int CurrentLevel
     {
@@ -30,7 +30,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.LoadScene("MainMenu");
+    }
+    // Update is called once per frame
+    void Update()
+    {
         
+    }
+    void OnPlayButtonClicked() //Considering the player clicked on play button on the main menu
+    {
+        GameManager.Instance.LoadNextLevel();
     }
     public void LoadNextLevel()
     {
@@ -45,23 +54,9 @@ public class GameManager : MonoBehaviour
             ShowVictoryScreen();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void OnPlayButtonClicked()
-    {
-        GameManager.Instance.LoadNextLevel();
-    }
-    public void ShowLevelCompletionPopup()
-    {
-        SceneManager.LoadScene("");
-    }
     public void ShowVictoryScreen()
     {
-        // Lógica para exibir a tela de vitória e agradecimentos
         Debug.Log("Congratulations! You completed all levels. Thanks for playing!");
-        // Aqui você pode chamar métodos para exibir uma tela de vitória, agradecimentos e créditos.
+        SceneManager.LoadScene("Victory Scene");
     }
 }

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - VictoryFlower
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3671929477
+    locked: 0
+  - name: PopUp
+    uniqueID: 126767925
     locked: 0
