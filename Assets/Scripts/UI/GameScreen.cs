@@ -14,6 +14,18 @@ public class GameScreen : MonoBehaviour
     private GameObject drop2;
     [SerializeField]
     private GameObject drop3;
+    [SerializeField]
+    private GameObject summerBar;
+    [SerializeField]
+    private GameObject fallBar;
+    [SerializeField]
+    private GameObject winterBar;
+    [SerializeField]
+    private GameObject summerText;
+    [SerializeField]
+    private GameObject fallText;
+    [SerializeField]
+    private GameObject winterText;
     #endregion
 
     // Start is called before the first frame update
@@ -25,26 +37,10 @@ public class GameScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Water)
-        {
-            fallGameScreen.SetActive(true);
-            summerGameScreen.SetActive(false);
-            winterGameScreen.SetActive(false);
-        }
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
-        {
-            fallGameScreen.SetActive(false);
-            summerGameScreen.SetActive(false);
-            winterGameScreen.SetActive(true);
-        }
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas)
-        {
-            fallGameScreen.SetActive(false);
-            summerGameScreen.SetActive(true);
-            winterGameScreen.SetActive(false);
-        }
+        // Atualizar a visibilidade das imagens
+        UpdateImageVisibility();
     }
-    private void UpdateObjectColors()
+    private void UpdateObjectColors()//just colouring the drops according the player be taking the collectable items
     {
         SetObjectColor(drop1, Color.gray);//Make sure the objects are in their original colours
         SetObjectColor(drop2, Color.gray);
@@ -73,7 +69,40 @@ public class GameScreen : MonoBehaviour
             }
         }
     }
-    private void OnEnable()
+    private void UpdateImageVisibility() //Changing the bar visibility
+    {
+        switch (ClimateManager.Instance.currentState)
+        {
+            case ClimateManager.State.Water:
+                fallBar.gameObject.SetActive(true);
+                winterBar.gameObject.SetActive(false);
+                summerBar.gameObject.SetActive(false);
+
+                summerText.gameObject.SetActive(false);
+                fallText.gameObject.SetActive(true);
+                winterText.gameObject.SetActive(false);
+                break;
+            case ClimateManager.State.Gas:
+                fallBar.gameObject.SetActive(false);
+                winterBar.gameObject.SetActive(false);
+                summerBar.gameObject.SetActive(true);
+
+                summerText.gameObject.SetActive(true);
+                fallText.gameObject.SetActive(false);
+                winterText.gameObject.SetActive(false);
+                break;
+            case ClimateManager.State.Ice:
+                fallBar.gameObject.SetActive(false);
+                winterBar.gameObject.SetActive(true);
+                summerBar.gameObject.SetActive(false);
+
+                summerText.gameObject.SetActive(false);
+                fallText.gameObject.SetActive(false);
+                winterText.gameObject.SetActive(true);
+                break;
+        }
+    }
+        private void OnEnable()
     {
         UpdateObjectColors();
     }
