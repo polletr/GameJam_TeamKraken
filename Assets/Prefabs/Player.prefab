@@ -5053,7 +5053,7 @@ MonoBehaviour:
   gizmoRadius: 0.5
   dieVelocityWind: 3
   fallWaterClip: {fileID: 8300000, guid: 9827ee4ba1a29414bb99114158c4335f, type: 3}
-  waterMovingClip: {fileID: 8300000, guid: 6b44a2502f3b0f14cba6eae94d3ea79b, type: 3}
+  waterMovingClip: {fileID: 8300000, guid: faf1796ad3325684e9a38c35a49c1edc, type: 3}
   breakIceClip: {fileID: 8300000, guid: dffbc785af81c484282093e860210a12, type: 3}
   iceMovingClip: {fileID: 8300000, guid: 8237cdb8afe796a4bb07d6519a407b2d, type: 3}
   iceJumpingClip: {fileID: 8300000, guid: 91eb382735b67494892fc606e0f0a1d9, type: 3}

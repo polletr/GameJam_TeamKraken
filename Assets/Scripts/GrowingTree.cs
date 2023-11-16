@@ -25,13 +25,16 @@ public class GrowingTree : MonoBehaviour
     [SerializeField]
     private bool fixedTree;
 
-    private Animator anim; 
+    private Animator anim;
+
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         speed = originalSpeed;
         startPos = new Vector2(currentPos.position.x, currentPos.position.y);
-        anim = GetComponentInParent<Animator>();
+        anim = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,16 +44,24 @@ public class GrowingTree : MonoBehaviour
         if (growing && currentPos.position.y < desiredPos.position.y)
         {
             transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
-            //anim.SetBool("Moving", true);
-            
+            anim.SetTrigger("Shake");
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
-            if (timer > 1f)
+            transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
+            anim.SetTrigger("Shake");
+            if (!audioSource.isPlaying)
             {
-                transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
-                //anim.SetBool("Moving", true);
+                audioSource.Play();
             }
+
+
         }
 
     }
@@ -60,7 +71,6 @@ public class GrowingTree : MonoBehaviour
         if (other.gameObject.tag == "Player" && ClimateManager.Instance.currentState == 0)
         {
             growing = true;
-            timer = 0f;
         }
     }
 
@@ -69,6 +79,7 @@ public class GrowingTree : MonoBehaviour
         if (!fixedTree)
         {
             growing = false;
+
         }
 
     }
