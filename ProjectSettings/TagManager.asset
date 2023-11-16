@@ -50,20 +50,17 @@ TagManager:
   - name: Background2
     uniqueID: 86473375
     locked: 0
-  - name: Water
-    uniqueID: 2941552603
-    locked: 0
   - name: Interactable
     uniqueID: 39361769
+    locked: 0
+  - name: Water
+    uniqueID: 1457727823
     locked: 0
   - name: Walls
     uniqueID: 1267983525
     locked: 0
   - name: Ground
     uniqueID: 3831662605
-    locked: 0
-  - name: Water
-    uniqueID: 1457727823
     locked: 0
   - name: Platform
     uniqueID: 2837955855
@@ -73,6 +70,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3671929477
+    locked: 0
+  - name: Water
+    uniqueID: 2941552603
     locked: 0
   - name: ParticleSystem
     uniqueID: 1399680319
