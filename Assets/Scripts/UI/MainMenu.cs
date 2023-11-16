@@ -10,13 +10,17 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Button playButton;
     [SerializeField]
-    private Button settingsButton;
+    private Button muteButton;
     [SerializeField]
     private Button howToPlayButton;
     [SerializeField]
     private Button quitButton;
     [SerializeField]
     private Button creditsButton;
+    [SerializeField]
+    private GameObject muteCross;
+
+    private bool gameIsMuted = false;
     #endregion
 
     // Start is called before the first frame update
@@ -29,9 +33,9 @@ public class MainMenu : MonoBehaviour
             playButton.onClick.AddListener(OnPlayButtonClicked);
             Debug.Log("Listener for PlayButton added!");
         }
-        if (settingsButton != null)
+        if (muteButton != null)
         {
-            settingsButton.onClick.AddListener(OnSettingsButtonClicked);
+            muteButton.onClick.AddListener(OnMuteButtonClicked);
             Debug.Log("Listener for Settings added!");
         }
         if (howToPlayButton != null)
@@ -63,10 +67,24 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level1");
         Debug.Log("clicou em play");
     }
-    void OnSettingsButtonClicked()
+    void OnMuteButtonClicked()
     {
-        SceneManager.LoadScene("Settings");
-        Debug.Log("clicou em settings");
+
+        if (muteCross != null)
+        {
+            if (gameIsMuted == false)
+            {
+            muteCross.SetActive(true);
+            gameIsMuted = true;
+            Debug.Log(gameIsMuted);
+            }
+        else
+            {
+            muteCross.SetActive(false);
+            gameIsMuted = false;
+            }
+        }
+       
     }
     void OnHowToPlayButtonClicked()
     {
@@ -81,6 +99,6 @@ public class MainMenu : MonoBehaviour
     void OnCreditsButtonClicked()
     {
         Debug.Log("clicou em Credits");
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadSceneAsync("Credit");
     }
 }
