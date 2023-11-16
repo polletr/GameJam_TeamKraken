@@ -4951,7 +4951,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006989956, y: 0}
+  m_Offset: {x: -0.009427056, y: 0.024367511}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4962,7 +4962,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73437786, y: 0.73437786}
+  m_Size: {x: 0.2860168, y: 0.2665221}
   m_EdgeRadius: 0
 --- !u!58 &7846161179337164248
 CircleCollider2D:
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   iceSpeed: 45
   jumpForce: 5
   cloudSprite: {fileID: 21300000, guid: 2ede2af101b1035429f058fc407497f3, type: 3}
-  waterSprite: {fileID: 21300000, guid: 13b1ca24b8464e04c8c0baeacd80f8e5, type: 3}
+  waterSprite: {fileID: 21300000, guid: 6b6b4312052ea5a4b85c5c7b9c48da00, type: 3}
   iceSprite: {fileID: 21300000, guid: 31ee1e439307bb0478b24b51e0dc79a4, type: 3}
   iceMaterial: {fileID: 6200000, guid: ca1515cddc51b524799c151fc1b5bf71, type: 2}
   waterMaterial: {fileID: 6200000, guid: 4f1ba1b14ebf2c042bd71db8d14cfaca, type: 2}
@@ -5074,7 +5074,7 @@ Animator:
   m_GameObject: {fileID: 7846161179337164254}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 433ac650f51379440b3fe901eb5c4dab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 044d7b55de95af74dafdb4ed007afffd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
