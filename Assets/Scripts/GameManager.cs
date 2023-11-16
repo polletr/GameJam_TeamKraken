@@ -63,4 +63,8 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 0f;
         PauseController.isPaused = true;
     }
+    public void PlayTheLevelAgain()
+    {
+        SceneManager.LoadSceneAsync("Level" + GameManager.Instance.currentLevel);
+    }
 }
