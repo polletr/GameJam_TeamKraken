@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     private void Start()
     {
-        anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Awake()
@@ -64,6 +63,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         waterCollider = GetComponent<CircleCollider2D>();
         iceCollider = GetComponent<BoxCollider2D>();
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnWater()
     {
-        anim.runtimeAnimatorController = Resources.Load("Assets/Animations/Water_Player.controller") as RuntimeAnimatorController;
+        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Water/Water_Player") as RuntimeAnimatorController;
         changeState?.Invoke();
         moveSpeed = waterSpeed;
         rb.gravityScale = 0.5f;
@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnIce()
     {
+        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Ice/Ice_Player") as RuntimeAnimatorController;
+
         changeState?.Invoke();
         moveSpeed = iceSpeed;
         rb.gravityScale = 1f;
@@ -112,6 +114,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnGas()
     {
+        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Gas/Gas_Player") as RuntimeAnimatorController;
+
         changeState?.Invoke();
         moveSpeed = gasSpeed;
         rb.gravityScale = 0f;

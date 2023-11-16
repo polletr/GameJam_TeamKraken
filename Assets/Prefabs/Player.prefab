@@ -4994,9 +4994,9 @@ MonoBehaviour:
   waterMaterial: {fileID: 6200000, guid: 4f1ba1b14ebf2c042bd71db8d14cfaca, type: 2}
   teleportPosition: {fileID: 0}
   teleportDelay: 1
-  iceMass: 0
-  gasMass: 0
-  waterMass: 0
+  iceMass: 25
+  gasMass: 1
+  waterMass: 2
   changeState:
     m_PersistentCalls:
       m_Calls:
@@ -5061,7 +5061,7 @@ Animator:
   m_GameObject: {fileID: 7846161179337164254}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 433ac650f51379440b3fe901eb5c4dab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
