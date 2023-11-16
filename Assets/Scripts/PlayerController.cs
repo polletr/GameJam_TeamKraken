@@ -219,6 +219,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "OneWayPlatform")
+        {
+            transform.parent = collision.transform;
+         
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "OneWayPlatform")
+        {
+            transform.parent = null;
+        }
+    }
+
+
 
     public void Die()
     {

@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 6850123475726792686}
   m_Layer: 3
   m_Name: LeafPlatformFixed
-  m_TagString: Untagged
+  m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

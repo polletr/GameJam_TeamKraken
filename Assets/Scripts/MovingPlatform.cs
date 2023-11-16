@@ -81,11 +81,30 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     private IEnumerator OnPatrolling()
     {
+        bool moveRight = true;
 
         while (currentPoint != null)
         {
             Vector2 direction = (currentPoint.position - transform.position).normalized;
-            rb.velocity = new Vector2(direction.x, 0f) * moveSpeed;
+            //rb.velocity = new Vector2(direction.x, 0f) * moveSpeed;
+
+            if (transform.position.x < currentPoint.position.x)
+            {
+                moveRight = true;
+            }
+            else
+            { 
+                moveRight = false;
+            }
+
+            if (moveRight)
+            {
+                transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
+            }
+            else
+            {
+                transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
+            }
 
 
             if (Vector2.Distance(transform.position, currentPoint.position) <= 0.05f)
@@ -101,6 +120,28 @@ public class MovingPlatform : MonoBehaviour
         SetState(State.Idle);
 
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(transform);
+
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(null);
+
+        }
+
+    }
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
