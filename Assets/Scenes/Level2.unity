@@ -4416,14 +4416,6 @@ PrefabInstance:
       propertyPath: dieVelocity
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7846161179337164248, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: m_Radius
-      value: 0.10421505
-      objectReference: {fileID: 0}
-    - target: {fileID: 7846161179337164248, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.031377893
-      objectReference: {fileID: 0}
     - target: {fileID: 7846161179337164254, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: m_Name
       value: Player
