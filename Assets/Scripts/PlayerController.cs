@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float waterMass;
     private bool isFacingRight;
 
-
+    Dictionary<string, RuntimeAnimatorController> animControllers = new Dictionary<string, RuntimeAnimatorController>();
 
     public UnityEvent changeState;
     [SerializeField] float gizmoRadius = 0.5f; // Adjust this to change gizmo size
@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        animControllers.Add("water_animator", Resources.Load("Animations/Player/Water/Water_Player") as RuntimeAnimatorController);
+        animControllers.Add("ice_animator", Resources.Load("Animations/Player/Ice/Ice_Player") as RuntimeAnimatorController);
+        animControllers.Add("gas_animator", Resources.Load("Animations/Player/Gas/Gas_Player") as RuntimeAnimatorController);
+
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnWater()
     {
-        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Water/Water_Player") as RuntimeAnimatorController;
+        anim.runtimeAnimatorController = animControllers["water_animator"]; 
         changeState?.Invoke();
         moveSpeed = waterSpeed;
         rb.gravityScale = 0.5f;
@@ -91,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnIce()
     {
-        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Ice/Ice_Player") as RuntimeAnimatorController;
+        anim.runtimeAnimatorController = animControllers["ice_animator"];
 
         changeState?.Invoke();
         moveSpeed = iceSpeed;
@@ -114,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnGas()
     {
-        anim.runtimeAnimatorController = Resources.Load("Animations/Player/Gas/Gas_Player") as RuntimeAnimatorController;
+        anim.runtimeAnimatorController = animControllers["gas_animator"];
 
         changeState?.Invoke();
         moveSpeed = gasSpeed;
@@ -137,24 +141,38 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
 
+    private void Update()
+    {
+        if (IsGrounded() && Input.GetButtonDown("Jump") && canJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim?.SetTrigger("Jumping");
+
+        }
+        horizontal = Input.GetAxisRaw("Horizontal");
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
 
         Flip();
-        if (!IsGrounded())
+        if (ClimateManager.Instance.currentState != ClimateManager.State.Gas)
         {
-            anim.SetBool("Falling", true);
-        }
-        else
-        {
-            anim.SetBool("Falling", false);
-        }
+            if (!IsGrounded())
+            {
+                anim.SetBool("Falling", true);
+            }
+            else
+            {
+                anim.SetBool("Falling", false);
+            }
 
+        }
 
         if (canMove)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
+            //horizontal = Input.GetAxisRaw("Horizontal");
 
             if (horizontal != 0)
             {
@@ -174,11 +192,9 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
             }
 
-            if (IsGrounded() && Input.GetKeyDown("space") && canJump)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            }
         }
+
+
 
     }
 
@@ -198,7 +214,8 @@ public class PlayerController : MonoBehaviour
     {
         if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind")
         {
-            ClimateManager.Instance.SetState(ClimateManager.State.Water);
+            anim.SetTrigger("Die");
+            
         }
     }
 
@@ -206,6 +223,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         canMove = false;
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
+        {
+            anim.SetTrigger("Die");
+        }
         Invoke("TeleportWithDelay", teleportDelay);
     }
 
@@ -223,6 +244,8 @@ public class PlayerController : MonoBehaviour
 
     private void TeleportWithDelay()
     {
+        ClimateManager.Instance.SetState(ClimateManager.State.Water);
+
         this.transform.position = teleportPosition.position;
         RestartMovement();
     }
@@ -234,5 +257,9 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(teleportPosition.position, gizmoRadius);
     }
 
+    public void BackToWater()
+    {
+            ClimateManager.Instance.SetState(ClimateManager.State.Water);
+    }
 
 }
