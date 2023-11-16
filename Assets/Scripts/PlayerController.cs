@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    [SerializeField]
+    private float dieVelocityWind;
+
 
     private bool canMove;
     private void Start()
@@ -212,30 +215,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind")
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind" && (rb.velocity.y < -dieVelocityWind || rb.velocity.x < -dieVelocityWind))
         {
             anim.SetTrigger("Die");
             
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "OneWayPlatform")
-        {
-            transform.parent = collision.transform;
-         
-        }
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "OneWayPlatform")
-        {
-            transform.parent = null;
-        }
-    }
 
 
 
