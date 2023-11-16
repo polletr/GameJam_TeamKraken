@@ -2026,6 +2026,30 @@ PrefabInstance:
       propertyPath: playerRespawn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164249, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2860168
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164249, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2665221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164249, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164249, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.009427056
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164249, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.024367511
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164251, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b6b4312052ea5a4b85c5c7b9c48da00, type: 3}
     - target: {fileID: 7846161179337164251, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2042,6 +2066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7846161179337164255, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
+      propertyPath: waterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b6b4312052ea5a4b85c5c7b9c48da00, type: 3}
     - target: {fileID: 7846161179337164255, guid: b4449576dee3f0747947ecafc4ffa770, type: 3}
       propertyPath: teleportPosition
       value: 

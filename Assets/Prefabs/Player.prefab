@@ -4891,7 +4891,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -623037819
-  m_SortingLayer: 11
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13b1ca24b8464e04c8c0baeacd80f8e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   jumpForce: 5
   cloudSprite: {fileID: 21300000, guid: 2ede2af101b1035429f058fc407497f3, type: 3}
   waterSprite: {fileID: 21300000, guid: 13b1ca24b8464e04c8c0baeacd80f8e5, type: 3}
-  iceSprite: {fileID: 21300000, guid: f517c01bfd4a68443bc5780bc7f7f526, type: 3}
+  iceSprite: {fileID: 21300000, guid: 31ee1e439307bb0478b24b51e0dc79a4, type: 3}
   iceMaterial: {fileID: 6200000, guid: ca1515cddc51b524799c151fc1b5bf71, type: 2}
   waterMaterial: {fileID: 6200000, guid: 4f1ba1b14ebf2c042bd71db8d14cfaca, type: 2}
   teleportPosition: {fileID: 0}
