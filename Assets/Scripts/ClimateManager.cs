@@ -60,11 +60,11 @@ public class ClimateManager : Singleton<ClimateManager>
         {
             SetState(State.Water);
         }
-        if ((Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.Keypad2)) && currentState != State.Ice /*&& SceneManager.GetActiveScene().buildIndex >= 2*/)
+        if ((Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.Keypad2)) && currentState != State.Ice && SceneManager.GetActiveScene().buildIndex >= 2)
         {
             SetState(State.Ice);
         } 
-        if ((Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Keypad3)) && currentState != State.Gas /*&& SceneManager.GetActiveScene().buildIndex >= 3*/)
+        if ((Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Keypad3)) && currentState != State.Gas && SceneManager.GetActiveScene().buildIndex >= 3)
         {
             SetState(State.Gas);
         }

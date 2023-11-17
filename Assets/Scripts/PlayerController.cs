@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Checkpoint")
         {
-            teleportPosition = collision.transform;
+            teleportPosition.position = collision.transform.position;
             Destroy(collision.gameObject);
         }
     }
