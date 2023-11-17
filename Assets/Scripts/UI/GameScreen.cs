@@ -45,6 +45,7 @@ public class GameScreen : MonoBehaviour
     {
         // Atualizar a visibilidade das imagens
         UpdateImageVisibility();
+        UpdateObjectColors();
     }
     private void UpdateObjectColors()//just colouring the drops according the player be taking the collectable items
     {
