@@ -28,6 +28,8 @@ public class PauseController : MonoBehaviour
         if (mainMenuButton != null)
         {
             mainMenuButton.onClick.AddListener(GoToMainMenu);
+            Time.timeScale = 1f;
+            isPaused = false;
         }
         if (exitButton != null)
         {

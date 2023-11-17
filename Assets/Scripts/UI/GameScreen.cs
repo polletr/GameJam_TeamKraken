@@ -26,12 +26,18 @@ public class GameScreen : MonoBehaviour
     private GameObject fallText;
     [SerializeField]
     private GameObject winterText;
+    [SerializeField]
+    private GameObject summerPicture;
+    [SerializeField]
+    private GameObject fallPicture;
+    [SerializeField]
+    private GameObject winterPicture;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -81,6 +87,10 @@ public class GameScreen : MonoBehaviour
                 summerText.gameObject.SetActive(false);
                 fallText.gameObject.SetActive(true);
                 winterText.gameObject.SetActive(false);
+
+                summerPicture.gameObject.SetActive(false);
+                fallPicture.gameObject.SetActive(true);
+                winterPicture.gameObject.SetActive(false);
                 break;
             case ClimateManager.State.Gas:
                 fallBar.gameObject.SetActive(false);
@@ -90,6 +100,10 @@ public class GameScreen : MonoBehaviour
                 summerText.gameObject.SetActive(true);
                 fallText.gameObject.SetActive(false);
                 winterText.gameObject.SetActive(false);
+
+                summerPicture.gameObject.SetActive(true);
+                fallPicture.gameObject.SetActive(false);
+                winterPicture.gameObject.SetActive(false);
                 break;
             case ClimateManager.State.Ice:
                 fallBar.gameObject.SetActive(false);
@@ -99,10 +113,14 @@ public class GameScreen : MonoBehaviour
                 summerText.gameObject.SetActive(false);
                 fallText.gameObject.SetActive(false);
                 winterText.gameObject.SetActive(true);
+
+                summerPicture.gameObject.SetActive(false);
+                fallPicture.gameObject.SetActive(false);
+                winterPicture.gameObject.SetActive(true);
                 break;
         }
     }
-        private void OnEnable()
+    private void OnEnable()
     {
         UpdateObjectColors();
     }
