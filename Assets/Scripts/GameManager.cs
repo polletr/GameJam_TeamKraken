@@ -11,7 +11,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private PauseController pauseController;
 
-    public bool gameIsMuted = false;
     private int maxLevels = 4;
 
     private int currentLevel;
@@ -43,10 +42,21 @@ public class GameManager : Singleton<GameManager>
             ShowVictoryScreen();
         }
     }
+
+    public void VictoryScreen()
+    {
+        Invoke("ShowVictoryScreen", 2f);
+    }
+
     public void ShowVictoryScreen()
     {
         Debug.Log("Congratulations! You completed all levels. Thanks for playing!");
         SceneManager.LoadScene("VictoryScene");
+    }
+
+    public void EndLevel()
+    {
+        Invoke("LevelFinished", 2f);
     }
     public void LevelFinished()
     {
@@ -57,19 +67,10 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 0f;
         PauseController.isPaused = true;
     }
+
+
     public void PlayTheLevelAgain()
     {
         SceneManager.LoadSceneAsync(currentLevel);
-    }
-    public void MuteGame()
-    {
-        gameIsMuted = true;
-        // Implemente a lógica para mutar o som aqui
-    }
-
-    public void UnmuteGame()
-    {
-        gameIsMuted = false;
-        // Implemente a lógica para desmutar o som aqui
     }
 }
