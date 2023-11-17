@@ -10078,7 +10078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.767696, y: -5.2041097, z: -10}
+  m_LocalPosition: {x: -18.759724, y: -5.20418, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10906,6 +10906,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.3340077
       objectReference: {fileID: 0}
+    - target: {fileID: 5352129391809878861, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352129391809878861, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.86
+      objectReference: {fileID: 0}
     - target: {fileID: 5352129392040358113, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
       propertyPath: m_Name
       value: MushElevatorMedium (1)
@@ -10972,7 +10980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5352129392863390959, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0499997
+      value: 4.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
@@ -22539,6 +22547,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.3340077
       objectReference: {fileID: 0}
+    - target: {fileID: 5352129391809878861, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352129391809878861, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.86
+      objectReference: {fileID: 0}
     - target: {fileID: 5352129392040358113, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
       propertyPath: m_Name
       value: MushElevatorMedium
@@ -22557,7 +22573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5352129392040358126, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.594
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 5352129392040358126, guid: 4134094ef2fbfcb40bbf305f01acf590, type: 3}
       propertyPath: m_LocalPosition.z
