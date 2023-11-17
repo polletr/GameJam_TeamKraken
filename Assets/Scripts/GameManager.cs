@@ -11,37 +11,30 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private PauseController pauseController;
 
-    public int currentLevel = 1;
     private int maxLevels = 4;
-    private int CurrentLevel
-    {
-        get { return currentLevel; }
-    }
 
+    private int currentLevel;
+
+    // Use PlayerPrefs para obter e definir o nível atual
     private void Awake()
     {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+    // Restante do seu código...
 
-    }
-    // Update is called once per frame
-    void Update()
+    void OnPlayButtonClicked()
     {
-        
+        LoadNextLevel();
     }
-    void OnPlayButtonClicked() //Considering the player clicked on play button on the main menu
-    {
-        GameManager.Instance.LoadNextLevel();
-    }
+
     public void LoadNextLevel()
     {
         if (currentLevel < maxLevels)
         {
             currentLevel++;
             SceneManager.LoadScene("Level" + currentLevel);
+            Time.timeScale = 1f;
         }
         else
         {
@@ -52,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     public void ShowVictoryScreen()
     {
         Debug.Log("Congratulations! You completed all levels. Thanks for playing!");
-        SceneManager.LoadScene("Victory Scene");
+        SceneManager.LoadScene("VictoryScene");
     }
     public void LevelFinished()
     {
@@ -65,6 +58,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void PlayTheLevelAgain()
     {
-        SceneManager.LoadSceneAsync("Level" + GameManager.Instance.currentLevel);
+        SceneManager.LoadSceneAsync(currentLevel);
     }
 }
