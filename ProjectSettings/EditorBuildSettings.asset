@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level4.unity
     guid: 9e1a8d728d897ad49be040cb5f51c09a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Gym.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
