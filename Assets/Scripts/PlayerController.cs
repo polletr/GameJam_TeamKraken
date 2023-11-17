@@ -252,6 +252,7 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         if (ClimateManager.Instance.currentState == ClimateManager.State.Ice)
         {
+            StopMovement();
             audioSource.clip = breakIceClip;
             audioSource.Play();
             anim.SetTrigger("Die");

@@ -50,7 +50,6 @@ public class GrowingTree : MonoBehaviour
                 audioSource.Play();
             }
 
-
         }
         else if (!fixedTree && !growing && currentPos.position.y > startPos.y)
         {
