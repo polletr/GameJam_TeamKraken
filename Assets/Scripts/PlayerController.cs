@@ -232,9 +232,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind" && (Mathf.Abs(rb.velocity.y) < dieVelocityWind || Mathf.Abs(rb.velocity.x) > dieVelocityWind))
+        if (ClimateManager.Instance.currentState == ClimateManager.State.Gas && collision.gameObject.tag != "Wind" && (Mathf.Abs(rb.velocity.y) > dieVelocityWind || Mathf.Abs(rb.velocity.x) > dieVelocityWind))
         {
             anim.SetTrigger("Die");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            teleportPosition = collision.transform;
+            Destroy(collision.gameObject);
         }
     }
 
