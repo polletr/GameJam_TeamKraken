@@ -15,17 +15,17 @@ public class GameManager : Singleton<GameManager>
 
     private int currentLevel;
 
-    // Use PlayerPrefs para obter e definir o nï¿½vel atual
+    // Use PlayerPrefs para obter e definir o nível atual
     private void Awake()
     {
-
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
-    // Restante do seu cï¿½digo...
+    // Restante do seu código...
 
     void OnPlayButtonClicked()
     {
-
+        LoadNextLevel();
     }
 
     public void LoadNextLevel()
@@ -38,7 +38,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            // O jogador concluiu todos os nï¿½veis
+            // O jogador concluiu todos os níveis
             ShowVictoryScreen();
         }
     }
@@ -53,6 +53,11 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Congratulations! You completed all levels. Thanks for playing!");
         SceneManager.LoadScene("VictoryScene");
     }
+
+    public void EndLevel()
+    {
+        Invoke("LevelFinished", 2f);
+    }
     public void LevelFinished()
     {
         Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.5f);
@@ -61,5 +66,11 @@ public class GameManager : Singleton<GameManager>
         transitionPopUp.SetActive(true);
         Time.timeScale = 0f;
         PauseController.isPaused = true;
+    }
+
+
+    public void PlayTheLevelAgain()
+    {
+        SceneManager.LoadSceneAsync(currentLevel);
     }
 }
